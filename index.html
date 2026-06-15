@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f7ff">
+  <meta name="description" content="ElevatorX asansör bakım, cari takip, raporlama ve saha yönetim uygulaması.">
+  <title>ElevatorX | Kurulum ve Lisans</title>
+  <style>
+    :root{
+      --bg:#f4f7ff;
+      --card:rgba(255,255,255,.82);
+      --text:#0f172a;
+      --muted:#6b7280;
+      --blue:#087cf4;
+      --blue2:#2f91ff;
+      --line:rgba(148,163,184,.22);
+      --shadow:0 24px 70px rgba(15,23,42,.10);
+      --radius:30px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%,rgba(67,135,255,.16),transparent 30%),
+        radial-gradient(circle at 90% 12%,rgba(59,130,246,.12),transparent 28%),
+        linear-gradient(180deg,#f7f9ff 0%,#eef3fb 100%);
+      min-height:100vh;
+    }
+    a{text-decoration:none;color:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    .shell{width:min(1120px,calc(100% - 28px));margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      padding:14px 0;
+      background:rgba(247,249,255,.72);
+      backdrop-filter:blur(22px) saturate(160%);
+      -webkit-backdrop-filter:blur(22px) saturate(160%);
+      border-bottom:1px solid rgba(255,255,255,.75);
+    }
+    .navin{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:950;font-size:24px;letter-spacing:-1px}
+    .brandmark{
+      width:42px;height:42px;border-radius:15px;
+      display:grid;place-items:center;
+      background:linear-gradient(180deg,#fff,#edf4ff);
+      box-shadow:0 10px 26px rgba(15,23,42,.10),inset 0 1px 0 #fff;
+      font-size:17px;
+    }
+    .brand b{color:var(--blue)}
+    .navlinks{display:flex;align-items:center;gap:8px}
+    .navlinks a{
+      padding:11px 14px;border-radius:14px;
+      color:#334155;font-weight:760;font-size:14px;
+    }
+    .navlinks .navcta{background:#111827;color:#fff}
+    .hero{padding:74px 0 38px}
+    .heroGrid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(59,130,246,.18);
+      background:rgba(239,246,255,.88);
+      color:#1769df;font-weight:850;font-size:12px;letter-spacing:.3px
+    }
+    h1{
+      font-size:clamp(46px,7vw,84px);
+      line-height:.94;margin:20px 0 18px;
+      letter-spacing:-4px;
+    }
+    h1 span{color:var(--blue)}
+    .lead{font-size:clamp(18px,2.4vw,23px);line-height:1.5;color:#556173;max-width:700px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .btn{
+      min-height:56px;padding:0 20px;border-radius:18px;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      font-weight:900;font-size:16px;border:1px solid transparent;
+      transition:transform .18s ease,box-shadow .18s ease
+    }
+    .btn:active{transform:scale(.97)}
+    .primary{
+      color:#fff;background:linear-gradient(180deg,var(--blue2),var(--blue));
+      box-shadow:0 14px 30px rgba(8,124,244,.26)
+    }
+    .dark{color:#fff;background:#111827;box-shadow:0 14px 28px rgba(15,23,42,.18)}
+    .ghost{background:rgba(255,255,255,.78);border-color:rgba(148,163,184,.22);color:#1f2937}
+    .micro{margin-top:13px;color:#7b8494;font-size:13px;font-weight:680}
+    .device{
+      position:relative;
+      padding:18px;
+      border-radius:42px;
+      background:linear-gradient(180deg,#111827,#080d17);
+      box-shadow:0 36px 80px rgba(15,23,42,.30);
+      transform:rotate(1.5deg);
+    }
+    .screen{
+      min-height:590px;border-radius:28px;overflow:hidden;padding:22px;
+      background:
+        radial-gradient(circle at 20% 0%,rgba(54,125,255,.18),transparent 30%),
+        linear-gradient(180deg,#f6f8ff,#edf3fb);
+    }
+    .screenTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+    .screenLogo{font-size:30px;font-weight:950;letter-spacing:-1.5px}.screenLogo b{color:var(--blue)}
+    .menuDot{width:44px;height:44px;border-radius:15px;background:#fff;display:grid;place-items:center;box-shadow:0 8px 20px rgba(15,23,42,.08);font-weight:950}
+    .searchMock{height:54px;border-radius:18px;background:#fff;display:flex;align-items:center;padding:0 17px;color:#9aa5b5;font-weight:750;box-shadow:0 8px 20px rgba(15,23,42,.05)}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+    .stat{background:#fff;border-radius:22px;padding:18px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
+    .stat b{display:block;font-size:27px}.stat span{color:#7b8494;font-size:13px}
+    .aptList{margin-top:16px}
+    .apt{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:20px;padding:15px;margin-top:9px;box-shadow:0 8px 22px rgba(15,23,42,.045)}
+    .apt strong{font-size:14px}.apt small{display:block;color:#8a94a5;margin-top:4px}
+    .badge{padding:7px 9px;border-radius:999px;background:#eaf8ef;color:#1f9d55;font-size:11px;font-weight:900}
+    section{padding:38px 0}
+    .sectionHead{text-align:center;max-width:760px;margin:0 auto 24px}
+    .sectionHead span{color:var(--blue);font-weight:900;font-size:12px;letter-spacing:.75px;text-transform:uppercase}
+    .sectionHead h2{font-size:clamp(32px,5vw,52px);letter-spacing:-2px;margin:9px 0 12px}
+    .sectionHead p{color:#667085;font-size:17px;line-height:1.55}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .feature{
+      padding:22px;border-radius:26px;
+      background:var(--card);border:1px solid rgba(255,255,255,.82);
+      box-shadow:var(--shadow);backdrop-filter:blur(18px)
+    }
+    .icon{
+      width:46px;height:46px;border-radius:16px;display:grid;place-items:center;
+      background:#eaf3ff;color:var(--blue);font-size:21px;font-weight:900;margin-bottom:16px
+    }
+    .feature h3{margin:0 0 8px;font-size:19px;letter-spacing:-.3px}
+    .feature p{margin:0;color:#6b7280;line-height:1.5;font-size:14px}
+    .installWrap{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .installCard{
+      padding:24px;border-radius:30px;background:#fff;border:1px solid rgba(226,232,240,.9);
+      box-shadow:var(--shadow)
+    }
+    .installCard h3{font-size:24px;margin:0 0 15px;letter-spacing:-.5px}
+    .steps{display:grid;gap:10px}
+    .step{display:flex;gap:12px;align-items:flex-start;padding:13px;border-radius:18px;background:#f5f7fb}
+    .num{width:30px;height:30px;min-width:30px;border-radius:11px;background:#111827;color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px}
+    .step b{font-size:14px}.step p{margin:4px 0 0;color:#6b7280;font-size:13px;line-height:1.4}
+    .sales{
+      padding:28px;border-radius:34px;
+      background:
+        radial-gradient(circle at 80% 10%,rgba(65,130,255,.25),transparent 32%),
+        linear-gradient(135deg,#111827,#172554);
+      color:#fff;display:flex;align-items:center;justify-content:space-between;gap:22px;
+      box-shadow:0 28px 70px rgba(15,23,42,.24)
+    }
+    .sales h2{font-size:clamp(30px,5vw,48px);margin:0 0 9px;letter-spacing:-1.8px}
+    .sales p{color:rgba(255,255,255,.72);margin:0;line-height:1.5}
+    .sales .btn{background:#fff;color:#111827;min-width:210px}
+    footer{padding:34px 0 46px;color:#7b8494;font-size:13px}
+    .foot{display:flex;justify-content:space-between;gap:14px;align-items:center;border-top:1px solid var(--line);padding-top:22px}
+    @media(max-width:860px){
+      .hero{padding-top:44px}
+      .heroGrid{grid-template-columns:1fr}
+      .device{max-width:520px;margin:auto;transform:none}
+      .features{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .shell{width:min(100% - 22px,1120px)}
+      .navlinks a:not(.navcta){display:none}
+      .hero{padding-top:36px}
+      h1{letter-spacing:-2.7px}
+      .device{padding:10px;border-radius:32px}
+      .screen{min-height:530px;border-radius:24px;padding:17px}
+      .features,.installWrap{grid-template-columns:1fr}
+      .sales{align-items:flex-start;flex-direction:column}
+      .sales .btn{width:100%}
+      .foot{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="shell navin">
+      <a class="brand" href="#"><span class="brandmark">EX</span><span>Elevator<b>X</b></span></a>
+      <nav class="navlinks">
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#kurulum">Kurulum</a>
+        <a class="navcta" href="https://elevatorx.github.io/" target="_blank" rel="noopener">Uygulamayı Aç</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell heroGrid">
+        <div>
+          <div class="eyebrow">ASANSÖR SAHA YÖNETİMİ</div>
+          <h1>İşini cebinden yönet. <span>ElevatorX</span></h1>
+          <p class="lead">Bakım takibi, apartman kayıtları, cari durum, tahsilat, teknik kütüphane, raporlama ve lisans yönetimi tek uygulamada.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://elevatorx.github.io/" target="_blank" rel="noopener">ElevatorX’i Aç</a>
+            <a class="btn dark" href="https://wa.me/905412654308?text=Merhaba%2C%20ElevatorX%20uygulamas%C4%B1%20hakk%C4%B1nda%20bilgi%20ve%20lisans%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp’tan Bilgi Al</a>
+            <a class="btn ghost" href="#kurulum">Kurulum Rehberi</a>
+          </div>
+          <div class="micro">App Store gerekmez • iPhone ve Android uyumlu • Lisanslı kullanım</div>
+        </div>
+
+        <div class="device" aria-label="ElevatorX uygulama önizlemesi">
+          <div class="screen">
+            <div class="screenTop">
+              <div class="screenLogo">Elevator<b>X</b></div>
+              <div class="menuDot">☰</div>
+            </div>
+            <div class="searchMock">⌕ &nbsp; Apartman ara...</div>
+            <div class="stats">
+              <div class="stat"><b>14</b><span>Apartman</span></div>
+              <div class="stat"><b>₺7.800</b><span>Tahsilat</span></div>
+              <div class="stat"><b>0</b><span>Bakım bugün</span></div>
+              <div class="stat"><b>0</b><span>Geciken</span></div>
+            </div>
+            <div class="aptList">
+              <div class="apt"><div><strong>ŞEN APARTMANI</strong><small>Bakım ve cari takip</small></div><span class="badge">Borç Yok</span></div>
+              <div class="apt"><div><strong>BELEDİYE EVLERİ</strong><small>Planlı bakım</small></div><span class="badge">Aktif</span></div>
+              <div class="apt"><div><strong>SAKİNLER APARTMANI</strong><small>Teknik geçmiş</small></div><span class="badge">Aktif</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ozellikler">
+      <div class="shell">
+        <div class="sectionHead">
+          <span>Tek merkez</span>
+          <h2>Sahadaki dağınıklığı toparlar</h2>
+          <p>Kağıt, not defteri ve farklı uygulamalar yerine işletme bilgilerini düzenli, hızlı ve ulaşılabilir tutar.</p>
+        </div>
+        <div class="features">
+          <article class="feature"><div class="icon">✓</div><h3>Bakım Takibi</h3><p>Aylık bakım durumlarını, geciken işleri ve son işlemleri takip edin.</p></article>
+          <article class="feature"><div class="icon">▦</div><h3>Apartman Yönetimi</h3><p>Yönetici, telefon, planlanan bakım ve sicil bilgilerini tek kartta görün.</p></article>
+          <article class="feature"><div class="icon">₺</div><h3>Cari ve Tahsilat</h3><p>Ödeme, kısmi ödeme, bakiye ve tahsilat geçmişini kayıt altında tutun.</p></article>
+          <article class="feature"><div class="icon">↥</div><h3>Yedekleme</h3><p>Verilerinizi JSON yedeğiyle güvenli biçimde dışarı aktarın.</p></article>
+          <article class="feature"><div class="icon">▤</div><h3>Teknik Kütüphane</h3><p>Kart, sürücü, arıza kodları ve saha notlarını hızlıca bulun.</p></article>
+          <article class="feature"><div class="icon">⌁</div><h3>Lisans Sistemi</h3><p>Lisans ilk kullanımda cihaza bağlanır ve aktivasyon bilgisi kontrol edilir.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kurulum">
+      <div class="shell">
+        <div class="sectionHead">
+          <span>Kolay kurulum</span>
+          <h2>Telefonuna uygulama gibi ekle</h2>
+          <p>ElevatorX tarayıcıdan açılır, ardından ana ekrana eklenerek bağımsız bir uygulama gibi kullanılır.</p>
+        </div>
+
+        <div class="installWrap">
+          <article class="installCard">
+            <h3>iPhone kurulumu</h3>
+            <div class="steps">
+              <div class="step"><span class="num">1</span><div><b>Safari ile aç</b><p>“ElevatorX’i Aç” butonuna Safari üzerinden dokun.</p></div></div>
+              <div class="step"><span class="num">2</span><div><b>Paylaş simgesine dokun</b><p>Safari’nin alt menüsündeki paylaş düğmesini aç.</p></div></div>
+              <div class="step"><span class="num">3</span><div><b>Ana Ekrana Ekle</b><p>Listeden “Ana Ekrana Ekle” seçeneğini seç.</p></div></div>
+              <div class="step"><span class="num">4</span><div><b>ElevatorX’i aç</b><p>Oluşan ikondan uygulamayı tam ekran kullan.</p></div></div>
+            </div>
+          </article>
+
+          <article class="installCard">
+            <h3>Android kurulumu</h3>
+            <div class="steps">
+              <div class="step"><span class="num">1</span><div><b>Chrome ile aç</b><p>ElevatorX bağlantısını Chrome tarayıcısında aç.</p></div></div>
+              <div class="step"><span class="num">2</span><div><b>Tarayıcı menüsünü aç</b><p>Sağ üstteki üç nokta menüsüne dokun.</p></div></div>
+              <div class="step"><span class="num">3</span><div><b>Uygulamayı yükle</b><p>“Uygulamayı yükle” veya “Ana ekrana ekle” seçeneğini kullan.</p></div></div>
+              <div class="step"><span class="num">4</span><div><b>Lisansını etkinleştir</b><p>Size verilen lisans anahtarını uygulamaya gir.</p></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="sales">
+          <div>
+            <h2>ElevatorX lisansı alın</h2>
+            <p>Fiyat, kurulum ve lisans işlemleri için WhatsApp üzerinden iletişime geçin.</p>
+          </div>
+          <a class="btn" href="https://wa.me/905412654308?text=Merhaba%2C%20ElevatorX%20lisans%C4%B1%20sat%C4%B1n%20almak%20istiyorum." target="_blank" rel="noopener">Lisans Talebi Oluştur</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell foot">
+      <div><strong>ElevatorX</strong> • Asansör saha yönetim sistemi</div>
+      <div>AY ASANSÖR • Tavşanlı / Kütahya</div>
+    </div>
+  </footer>
+</body>
+</html>
