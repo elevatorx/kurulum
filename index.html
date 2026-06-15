@@ -3,305 +3,810 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f4f7ff">
-  <meta name="description" content="ElevatorX asansör bakım, cari takip, raporlama ve saha yönetim uygulaması.">
-  <title>ElevatorX | Kurulum ve Lisans</title>
+  <meta name="theme-color" content="#f5f5f7">
+  <meta name="description" content="ElevatorX — Asansör bakım ve saha yönetimi için sade, hızlı ve lisanslı uygulama.">
+  <title>ElevatorX — Saha yönetimi. Yeniden düşünüldü.</title>
   <style>
     :root{
-      --bg:#f4f7ff;
-      --card:rgba(255,255,255,.82);
-      --text:#0f172a;
-      --muted:#6b7280;
-      --blue:#087cf4;
-      --blue2:#2f91ff;
-      --line:rgba(148,163,184,.22);
-      --shadow:0 24px 70px rgba(15,23,42,.10);
-      --radius:30px;
+      --bg:#f5f5f7;
+      --surface:#ffffff;
+      --text:#1d1d1f;
+      --muted:#6e6e73;
+      --line:#d2d2d7;
+      --blue:#0071e3;
+      --blue2:#2997ff;
+      --deep:#07111f;
+      --navy:#0d1b3d;
+      --radius:34px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
       color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-      background:
-        radial-gradient(circle at 12% 0%,rgba(67,135,255,.16),transparent 30%),
-        radial-gradient(circle at 90% 12%,rgba(59,130,246,.12),transparent 28%),
-        linear-gradient(180deg,#f7f9ff 0%,#eef3fb 100%);
-      min-height:100vh;
+      background:var(--bg);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-    a{text-decoration:none;color:inherit}
+    a{color:inherit;text-decoration:none}
     button,a{-webkit-tap-highlight-color:transparent}
-    .shell{width:min(1120px,calc(100% - 28px));margin:auto}
-    .nav{
-      position:sticky;top:0;z-index:20;
-      padding:14px 0;
-      background:rgba(247,249,255,.72);
-      backdrop-filter:blur(22px) saturate(160%);
-      -webkit-backdrop-filter:blur(22px) saturate(160%);
-      border-bottom:1px solid rgba(255,255,255,.75);
+    img{display:block;max-width:100%}
+    .wrap{width:min(1180px,calc(100% - 36px));margin:0 auto}
+
+    /* ---------- NAV ---------- */
+    .siteNav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      height:54px;
+      background:rgba(250,250,252,.86);
+      backdrop-filter:saturate(180%) blur(20px);
+      -webkit-backdrop-filter:saturate(180%) blur(20px);
+      border-bottom:1px solid rgba(0,0,0,.05);
     }
-    .navin{display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:950;font-size:24px;letter-spacing:-1px}
-    .brandmark{
-      width:42px;height:42px;border-radius:15px;
-      display:grid;place-items:center;
-      background:linear-gradient(180deg,#fff,#edf4ff);
-      box-shadow:0 10px 26px rgba(15,23,42,.10),inset 0 1px 0 #fff;
-      font-size:17px;
-      font-weight:950;
+    .navInner{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      font-size:21px;
+      font-weight:760;
       letter-spacing:-.8px;
     }
-    .brandmark .e{color:#0f172a}
-    .brandmark .x{color:var(--blue)}
-    .brand b{color:var(--blue)}
-    .navlinks{display:flex;align-items:center;gap:8px}
-    .navlinks a{
-      padding:11px 14px;border-radius:14px;
-      color:#334155;font-weight:760;font-size:14px;
+    .brandMark{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      box-shadow:0 1px 2px rgba(0,0,0,.08);
+      font-size:14px;
+      font-weight:850;
+      letter-spacing:-1px;
     }
-    .navlinks .navcta{background:#111827;color:#fff}
-    .hero{padding:74px 0 38px}
-    .heroGrid{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center}
+    .x{color:var(--blue)}
+    .navLinks{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:12px;
+      color:#343438;
+    }
+    .navLinks a:hover{color:var(--blue)}
+    .navCta{
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--blue);
+      color:#fff!important;
+      font-weight:650;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      padding:90px 0 58px;
+      text-align:center;
+      overflow:hidden;
+      background:#fff;
+    }
     .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 12px;border-radius:999px;
-      border:1px solid rgba(59,130,246,.18);
-      background:rgba(239,246,255,.88);
-      color:#1769df;font-weight:850;font-size:12px;letter-spacing:.3px
+      font-size:18px;
+      font-weight:650;
+      color:#6e6e73;
+      margin-bottom:16px;
     }
-    .heroTitleTop{display:block;color:#0f172a}
-    .heroTitleBrand{display:block;color:var(--blue);margin-top:4px}
-    h1{
-      font-size:clamp(42px,6.2vw,74px);
-      line-height:1.02;
-      margin:18px 0 14px;
-      letter-spacing:-2.8px;
-      font-weight:950;
-      max-width:760px;
+    .hero h1{
+      max-width:980px;
+      margin:0 auto;
+      font-size:clamp(56px,8vw,96px);
+      line-height:.97;
+      letter-spacing:-5px;
+      font-weight:780;
     }
-    h1 span{color:var(--blue)}
-    .lead{font-size:clamp(17px,2.1vw,21px);line-height:1.62;color:#5e6879;max-width:760px;font-weight:500}
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-    .btn{
-      min-height:56px;padding:0 20px;border-radius:18px;
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      font-weight:850;font-size:16px;border:1px solid transparent;
-      transition:transform .18s ease,box-shadow .18s ease
+    .heroLead{
+      max-width:780px;
+      margin:28px auto 0;
+      font-size:clamp(21px,2.6vw,29px);
+      line-height:1.25;
+      color:var(--muted);
+      font-weight:520;
+      letter-spacing:-.5px;
     }
-    .btn:active{transform:scale(.97)}
-    .primary{
-      color:#fff;background:linear-gradient(180deg,var(--blue2),var(--blue));
-      box-shadow:0 14px 30px rgba(8,124,244,.26)
+    .heroActions{
+      margin-top:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:26px;
+      flex-wrap:wrap;
     }
-    .dark{color:#fff;background:#111827;box-shadow:0 14px 28px rgba(15,23,42,.18)}
-    .ghost{background:rgba(255,255,255,.78);border-color:rgba(148,163,184,.22);color:#1f2937}
-    .micro{margin-top:13px;color:#7b8494;font-size:13px;font-weight:680}
-    .device{
+    .textLink{
+      color:var(--blue);
+      font-size:19px;
+      font-weight:520;
+    }
+    .textLink::after{content:"›";margin-left:6px}
+    .textLink:hover{text-decoration:underline}
+
+    /* ---------- APP STAGE ---------- */
+    .appStage{
       position:relative;
-      padding:18px;
-      border-radius:42px;
-      background:linear-gradient(180deg,#111827,#080d17);
-      box-shadow:0 36px 80px rgba(15,23,42,.30);
-      transform:rotate(1.5deg);
-    }
-    .screen{
-      min-height:590px;border-radius:28px;overflow:hidden;padding:22px;
+      width:min(1160px,100%);
+      min-height:760px;
+      margin:76px auto 0;
+      border-radius:48px;
+      overflow:hidden;
       background:
-        radial-gradient(circle at 20% 0%,rgba(54,125,255,.18),transparent 30%),
-        linear-gradient(180deg,#f6f8ff,#edf3fb);
+        radial-gradient(circle at 50% 8%,rgba(255,255,255,.95),rgba(255,255,255,0) 25%),
+        radial-gradient(circle at 52% 28%,rgba(0,113,227,.22),rgba(0,113,227,0) 38%),
+        linear-gradient(180deg,#edf5ff 0%,#dbe9fa 58%,#cbdcf3 100%);
     }
-    .screenTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
-    .screenLogo{font-size:30px;font-weight:950;letter-spacing:-1.5px}.screenLogo b{color:var(--blue)}
-    .menuDot{width:44px;height:44px;border-radius:15px;background:#fff;display:grid;place-items:center;box-shadow:0 8px 20px rgba(15,23,42,.08);font-weight:950}
-    .searchMock{height:54px;border-radius:18px;background:#fff;display:flex;align-items:center;padding:0 17px;color:#9aa5b5;font-weight:750;box-shadow:0 8px 20px rgba(15,23,42,.05)}
-    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
-    .stat{background:#fff;border-radius:22px;padding:18px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
-    .stat b{display:block;font-size:27px}.stat span{color:#7b8494;font-size:13px}
-    .aptList{margin-top:16px}
-    .apt{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:20px;padding:15px;margin-top:9px;box-shadow:0 8px 22px rgba(15,23,42,.045)}
-    .apt strong{font-size:14px}.apt small{display:block;color:#8a94a5;margin-top:4px}
-    .badge{padding:7px 9px;border-radius:999px;background:#eaf8ef;color:#1f9d55;font-size:11px;font-weight:900}
-    section{padding:38px 0}
-    .sectionHead{text-align:center;max-width:760px;margin:0 auto 24px}
-    .sectionHead span{color:var(--blue);font-weight:900;font-size:12px;letter-spacing:.75px;text-transform:uppercase}
-    .sectionHead h2{font-size:clamp(32px,5vw,52px);letter-spacing:-2px;margin:9px 0 12px}
-    .sectionHead p{color:#667085;font-size:16px;line-height:1.62;font-weight:500}
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .feature{
-      padding:22px;border-radius:26px;
-      background:var(--card);border:1px solid rgba(255,255,255,.82);
-      box-shadow:var(--shadow);backdrop-filter:blur(18px)
+    .stageGlow{
+      position:absolute;
+      left:50%;
+      bottom:14px;
+      width:680px;
+      height:150px;
+      transform:translateX(-50%);
+      border-radius:50%;
+      background:rgba(31,75,136,.28);
+      filter:blur(52px);
     }
-    .icon{
-      width:46px;height:46px;border-radius:16px;display:grid;place-items:center;
-      background:#eaf3ff;color:var(--blue);font-size:21px;font-weight:900;margin-bottom:16px
+    .device{
+      position:absolute;
+      width:330px;
+      height:690px;
+      padding:10px;
+      border-radius:54px;
+      background:#0a0a0b;
+      box-shadow:0 40px 100px rgba(31,56,91,.34);
     }
-    .feature h3{margin:0 0 8px;font-size:18px;letter-spacing:-.25px}
-    .feature p{margin:0;color:#6b7280;line-height:1.58;font-size:14px;font-weight:500}
-    .installWrap{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .installCard{
-      padding:24px;border-radius:30px;background:#fff;border:1px solid rgba(226,232,240,.9);
-      box-shadow:var(--shadow)
-    }
-    .installCard h3{font-size:23px;margin:0 0 15px;letter-spacing:-.45px}
-    .steps{display:grid;gap:10px}
-    .step{display:flex;gap:12px;align-items:flex-start;padding:13px;border-radius:18px;background:#f5f7fb}
-    .num{width:30px;height:30px;min-width:30px;border-radius:11px;background:#111827;color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px}
-    .step b{font-size:14px}.step p{margin:4px 0 0;color:#6b7280;font-size:13px;line-height:1.4}
-    .sales{
-      padding:28px;border-radius:34px;
+    .deviceMain{left:50%;bottom:-110px;transform:translateX(-50%);z-index:3}
+    .deviceLeft{left:7%;bottom:-170px;transform:rotate(-7deg);z-index:1;opacity:.96}
+    .deviceRight{right:7%;bottom:-170px;transform:rotate(7deg);z-index:1;opacity:.96}
+    .deviceScreen{
+      width:100%;
+      height:100%;
+      border-radius:44px;
+      overflow:hidden;
       background:
-        radial-gradient(circle at 80% 10%,rgba(65,130,255,.25),transparent 32%),
-        linear-gradient(135deg,#111827,#172554);
-      color:#fff;display:flex;align-items:center;justify-content:space-between;gap:22px;
-      box-shadow:0 28px 70px rgba(15,23,42,.24)
+        radial-gradient(circle at 22% 0%,rgba(49,128,255,.16),transparent 28%),
+        linear-gradient(180deg,#f8faff 0%,#eef4fb 100%);
+      position:relative;
     }
-    .sales h2{font-size:clamp(30px,5vw,48px);margin:0 0 9px;letter-spacing:-1.8px}
-    .sales p{color:rgba(255,255,255,.72);margin:0;line-height:1.5}
-    .sales .btn{background:#fff;color:#111827;min-width:210px}
-    footer{padding:34px 0 46px;color:#7b8494;font-size:13px}
-    .foot{display:flex;justify-content:center;gap:14px;align-items:center;border-top:1px solid var(--line);padding-top:22px;text-align:center}
-    @media(max-width:860px){
-      .hero{padding-top:44px}
-      .heroGrid{grid-template-columns:1fr}
-      .device{max-width:520px;margin:auto;transform:none}
-      .features{grid-template-columns:1fr 1fr}
+
+    /* ---------- DEMO APP UI ---------- */
+    .appTop{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:22px 18px 12px;
     }
-    @media(max-width:640px){
-      .shell{width:min(100% - 22px,1120px)}
-      .navlinks a:not(.navcta){display:none}
-      .hero{padding-top:36px}
-      h1{letter-spacing:-2px;font-size:clamp(38px,12vw,58px);line-height:1.03}
-      .lead{font-size:16px;line-height:1.58}
-      .actions{gap:10px}
-      .btn{font-size:15px}
-      .device{padding:10px;border-radius:32px}
-      .screen{min-height:530px;border-radius:24px;padding:17px}
-      .features,.installWrap{grid-template-columns:1fr}
-      .sales{align-items:flex-start;flex-direction:column}
-      .sales .btn{width:100%}
-      .foot{align-items:center;flex-direction:column}
+    .appBrand{
+      font-size:26px;
+      font-weight:820;
+      letter-spacing:-1.2px;
+    }
+    .appMenu{
+      width:42px;height:42px;border-radius:15px;background:#fff;
+      display:grid;place-items:center;
+      box-shadow:0 8px 18px rgba(15,23,42,.08);
+      color:#111827;font-size:20px;font-weight:800;
+    }
+    .searchBox{
+      height:52px;
+      margin:8px 16px 14px;
+      border-radius:18px;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      padding:0 16px;
+      color:#a0a9b8;
+      font-size:15px;
+      font-weight:700;
+      box-shadow:0 8px 20px rgba(15,23,42,.05);
+    }
+    .summaryGrid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      padding:0 16px;
+    }
+    .summaryCard{
+      background:#fff;
+      border-radius:20px;
+      padding:17px 14px;
+      min-height:94px;
+      box-shadow:0 8px 22px rgba(15,23,42,.045);
+    }
+    .summaryCard b{display:block;font-size:25px;letter-spacing:-1px}
+    .summaryCard span{display:block;margin-top:5px;color:#7b8494;font-size:12px}
+    .listTitle{padding:18px 18px 8px;font-size:18px;font-weight:800;letter-spacing:-.4px}
+    .aptCard{
+      margin:8px 16px;
+      padding:14px;
+      border-radius:18px;
+      background:#fff;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      box-shadow:0 8px 22px rgba(15,23,42,.045);
+    }
+    .aptCard strong{display:block;font-size:14px}
+    .aptCard small{display:block;margin-top:4px;color:#8993a2;font-size:11px}
+    .aptBadge{
+      padding:6px 9px;border-radius:999px;background:#eaf8ef;color:#1d9150;
+      font-size:10px;font-weight:800;white-space:nowrap;
+    }
+    .segmented{
+      position:absolute;
+      left:50%;bottom:18px;transform:translateX(-50%);
+      width:250px;height:58px;padding:4px;border-radius:30px;background:#121212;
+      display:grid;grid-template-columns:1fr 1fr;gap:0;
+      box-shadow:0 12px 26px rgba(15,23,42,.22);
+    }
+    .segmented span{
+      display:grid;place-items:center;color:#fff;border-radius:26px;font-size:13px;font-weight:780;
+    }
+    .segmented .active{background:#f5f5f5;color:#111}
+
+    /* menu screen */
+    .drawer{
+      width:82%;height:100%;background:#f7f9fd;padding:18px 14px;
+      box-shadow:22px 0 50px rgba(15,23,42,.14);
+    }
+    .drawerHead{display:flex;align-items:center;justify-content:space-between}
+    .drawerBrand{font-size:22px;font-weight:820}
+    .drawerClose{
+      width:36px;height:36px;border-radius:13px;background:#e9edf4;display:grid;place-items:center;font-weight:800
+    }
+    .profileCard{
+      margin-top:18px;padding:18px;border-radius:22px;background:#111d44;color:white
+    }
+    .profileCard b{display:block;font-size:18px}
+    .profileCard span{display:block;margin-top:5px;color:#c7d0df;font-size:11px}
+    .drawerLabel{margin:18px 6px 8px;color:#8a94a5;font-size:10px;font-weight:850;letter-spacing:.7px}
+    .drawerItem{
+      display:flex;align-items:center;gap:12px;padding:12px;margin-top:9px;border-radius:18px;background:#fff;
+      box-shadow:0 6px 16px rgba(15,23,42,.04);
+    }
+    .drawerItem.primary{background:#edf5ff;border:1px solid #c5ddff}
+    .drawerIcon{
+      width:36px;height:36px;border-radius:13px;background:#eaf3ff;color:var(--blue);display:grid;place-items:center;font-weight:850
+    }
+    .drawerItem b{display:block;font-size:12px}
+    .drawerItem small{display:block;margin-top:3px;color:#8b94a2;font-size:9px}
+
+    /* profile screen */
+    .profileHero{
+      padding:20px 18px 16px;text-align:center;
+    }
+    .avatar{
+      width:82px;height:82px;border-radius:50%;margin:0 auto;
+      background:linear-gradient(180deg,#fff,#e8edf5);
+      display:grid;place-items:center;
+      font-size:26px;font-weight:850;
+      box-shadow:0 8px 22px rgba(15,23,42,.09);
+    }
+    .profileHero h4{margin:12px 0 3px;font-size:22px;letter-spacing:-.6px}
+    .profileHero p{margin:0;color:#7b8494;font-size:12px}
+    .profileNote{
+      margin:10px 16px 14px;padding:16px;border-radius:18px;background:#fff;color:#343a46;font-size:12px;line-height:1.45
+    }
+    .controlCard{
+      margin:10px 16px;padding:18px;border-radius:22px;background:#fff;box-shadow:0 8px 22px rgba(15,23,42,.05)
+    }
+    .controlCard span{color:var(--blue);font-size:10px;font-weight:850;letter-spacing:.6px}
+    .controlCard h4{margin:8px 0 6px;font-size:18px}
+    .controlCard p{margin:0;color:#7b8494;font-size:11px;line-height:1.45}
+    .profileStats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 16px}
+    .profileStat{background:#fff;border-radius:18px;padding:16px;text-align:center}
+    .profileStat b{display:block;font-size:22px}.profileStat small{color:#7b8494}
+
+    /* ---------- SECTION COMMON ---------- */
+    .section{padding:112px 0}
+    .sectionLabel{text-align:center;color:#6e6e73;font-size:17px;font-weight:600}
+    .sectionTitle{
+      max-width:920px;margin:12px auto 0;text-align:center;
+      font-size:clamp(44px,6vw,74px);line-height:1.02;letter-spacing:-3.8px;font-weight:760
+    }
+    .sectionText{
+      max-width:770px;margin:22px auto 0;text-align:center;
+      color:var(--muted);font-size:clamp(18px,2vw,23px);line-height:1.42;font-weight:500
+    }
+
+    /* ---------- HIGHLIGHTS ---------- */
+    .highlightRail{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:minmax(320px,38vw);
+      gap:18px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      padding:0 max(18px,calc((100vw - 1180px)/2)) 20px;
+      margin-top:60px;
+      scrollbar-width:none;
+    }
+    .highlightRail::-webkit-scrollbar{display:none}
+    .highlightCard{
+      min-height:520px;border-radius:34px;padding:34px;scroll-snap-align:start;
+      display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;
+      box-shadow:0 10px 30px rgba(15,23,42,.06);
+    }
+    .highlightCard h3{margin:0;font-size:clamp(34px,4vw,52px);line-height:1.03;letter-spacing:-2.2px}
+    .highlightCard p{margin:14px 0 0;font-size:17px;line-height:1.45;max-width:430px}
+    .whiteCard{background:#fff}
+    .whiteCard p{color:#6e6e73}
+    .blackCard{background:#000;color:#fff}
+    .blackCard p{color:#a1a1a6}
+    .blueCard{background:linear-gradient(145deg,#0071e3,#003e83);color:#fff}
+    .blueCard p{color:rgba(255,255,255,.72)}
+    .metricBlock{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .metric{
+      border-radius:22px;padding:22px;background:#f5f5f7;
+    }
+    .blackCard .metric{background:#1d1d1f}
+    .blueCard .metric{background:rgba(255,255,255,.14)}
+    .metric b{display:block;font-size:34px;letter-spacing:-1.5px}
+    .metric span{display:block;margin-top:5px;color:#6e6e73;font-size:13px}
+    .blackCard .metric span,.blueCard .metric span{color:rgba(255,255,255,.63)}
+
+    /* ---------- FULL SCENES ---------- */
+    .scene{
+      padding:120px 0;
+      overflow:hidden;
+    }
+    .sceneDark{background:#000;color:#fff}
+    .sceneLight{background:#fff}
+    .sceneBlue{
+      background:
+        radial-gradient(circle at 85% 10%,rgba(70,150,255,.35),transparent 30%),
+        linear-gradient(135deg,#0b1c45,#071326 70%);
+      color:#fff;
+    }
+    .sceneGrid{
+      display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center
+    }
+    .sceneCopy h2{
+      margin:0;font-size:clamp(48px,6vw,78px);line-height:1.01;letter-spacing:-4px;font-weight:760
+    }
+    .sceneCopy p{
+      margin:22px 0 0;max-width:600px;color:#6e6e73;font-size:21px;line-height:1.45
+    }
+    .sceneDark .sceneCopy p,.sceneBlue .sceneCopy p{color:#a1a1a6}
+    .sceneVisual{
+      min-height:620px;border-radius:38px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden
+    }
+    .sceneLight .sceneVisual{
+      background:linear-gradient(180deg,#eef5ff,#dbe9fa);
+    }
+    .sceneDark .sceneVisual{
+      background:radial-gradient(circle at 50% 20%,#1b1b1e,#080808 66%);
+    }
+    .sceneBlue .sceneVisual{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .singleDevice{
+      width:330px;height:650px;padding:10px;border-radius:52px;background:#0a0a0b;
+      transform:translateY(70px);box-shadow:0 38px 90px rgba(0,0,0,.28)
+    }
+    .singleDevice .deviceScreen{border-radius:42px}
+    .securityList{display:grid;gap:12px;width:min(480px,100%);padding:40px}
+    .securityItem{
+      display:flex;align-items:center;gap:14px;padding:18px;border-radius:20px;
+      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)
+    }
+    .securityIcon{
+      width:42px;height:42px;border-radius:15px;background:rgba(255,255,255,.12);
+      display:grid;place-items:center;color:#8dc5ff;font-weight:850
+    }
+    .securityItem b{display:block;font-size:17px}
+    .securityItem span{display:block;margin-top:3px;color:#a1a1a6;font-size:13px}
+
+    /* ---------- INSTALL ---------- */
+    .installPanel{
+      margin-top:62px;border-radius:36px;background:#fff;padding:54px;
+      display:grid;grid-template-columns:.9fr 1.1fr;gap:58px;align-items:center
+    }
+    .installCopy h3{
+      margin:0;font-size:clamp(40px,5vw,64px);line-height:1.02;letter-spacing:-3px
+    }
+    .installCopy p{font-size:19px;line-height:1.48;color:var(--muted);margin:18px 0 0}
+    .steps{display:grid;gap:0}
+    .step{
+      display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:start;
+      padding:19px 0;border-bottom:1px solid #e5e5e7
+    }
+    .step:last-child{border-bottom:0}
+    .stepNo{
+      width:34px;height:34px;border-radius:50%;background:#1d1d1f;color:#fff;
+      display:grid;place-items:center;font-size:13px;font-weight:700
+    }
+    .step b{display:block;font-size:17px}
+    .step p{margin:5px 0 0;color:var(--muted);font-size:15px;line-height:1.4}
+
+    /* ---------- CTA ---------- */
+    .ctaSection{padding:80px 0 120px}
+    .cta{
+      border-radius:38px;background:#000;color:#fff;text-align:center;padding:82px 24px;
+      overflow:hidden;position:relative
+    }
+    .cta::before{
+      content:"";position:absolute;inset:-35% auto auto 50%;transform:translateX(-50%);
+      width:720px;height:450px;border-radius:50%;
+      background:radial-gradient(circle,rgba(0,113,227,.56),transparent 66%);
+    }
+    .ctaInner{position:relative;z-index:2}
+    .cta h2{margin:0;font-size:clamp(44px,6vw,74px);line-height:1.02;letter-spacing:-3.8px}
+    .cta p{max-width:680px;margin:18px auto 0;color:#a1a1a6;font-size:19px;line-height:1.45}
+    .ctaButtons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .button{
+      min-height:52px;padding:0 22px;border-radius:999px;display:inline-flex;align-items:center;
+      justify-content:center;font-size:16px;font-weight:650
+    }
+    .buttonBlue{background:var(--blue);color:#fff}
+    .buttonWhite{background:#fff;color:#111}
+
+    /* ---------- FOOTER ---------- */
+    footer{padding:26px 0 38px;color:#6e6e73;font-size:12px}
+    .footerInner{
+      display:flex;justify-content:space-between;gap:20px;border-top:1px solid #d2d2d7;padding-top:20px
+    }
+
+    /* ---------- REVEAL ---------- */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:980px){
+      .sceneGrid{grid-template-columns:1fr;gap:44px}
+      .sceneCopy{text-align:center}
+      .sceneCopy p{margin-left:auto;margin-right:auto}
+      .deviceLeft{left:-7%}
+      .deviceRight{right:-7%}
+      .installPanel{grid-template-columns:1fr;gap:32px}
+    }
+
+    @media(max-width:760px){
+      .wrap{width:min(100% - 28px,1180px)}
+      .navLinks a:not(.navCta){display:none}
+      .hero{padding:64px 0 40px}
+      .hero h1{font-size:clamp(50px,14vw,68px);letter-spacing:-3.3px}
+      .heroLead{font-size:20px}
+      .appStage{margin-top:50px;min-height:590px;border-radius:32px}
+      .device{width:255px;height:545px;border-radius:42px;padding:8px}
+      .deviceScreen{border-radius:34px}
+      .deviceMain{bottom:-70px}
+      .deviceLeft,.deviceRight{width:210px;height:500px;bottom:-120px}
+      .deviceLeft{left:-21%}
+      .deviceRight{right:-21%}
+
+      .appBrand{font-size:21px}
+      .appMenu{width:36px;height:36px;border-radius:13px}
+      .searchBox{height:46px;font-size:13px}
+      .summaryCard{min-height:78px;padding:13px}
+      .summaryCard b{font-size:20px}
+      .aptCard{padding:12px}
+      .segmented{width:210px;height:52px}
+      .section{padding:84px 0}
+      .sectionTitle{font-size:45px;letter-spacing:-2.8px}
+      .sectionText{font-size:19px}
+      .highlightRail{grid-auto-columns:84vw;margin-top:46px}
+      .highlightCard{min-height:500px;padding:28px}
+      .scene{padding:86px 0}
+      .sceneCopy h2{font-size:49px;letter-spacing:-3px}
+      .sceneCopy p{font-size:19px}
+      .sceneVisual{min-height:560px;border-radius:30px}
+      .singleDevice{width:280px;height:580px}
+      .installPanel{padding:34px 22px;border-radius:30px}
+      .installCopy h3{font-size:45px;letter-spacing:-2.5px}
+      .cta{padding:62px 18px;border-radius:30px}
+      .cta h2{font-size:49px;letter-spacing:-2.7px}
+      .footerInner{flex-direction:column}
+    }
+
+    @media(max-width:430px){
+      .brand{font-size:19px}
+      .navCta{padding:7px 12px}
+      .heroActions{gap:18px}
+      .textLink{font-size:17px}
+      .appStage{min-height:535px}
+      .deviceMain{height:510px}
+      .deviceLeft,.deviceRight{height:455px}
+      .sectionTitle{font-size:40px}
+      .highlightCard h3{font-size:37px}
+      .metricBlock{grid-template-columns:1fr}
+      .sceneCopy h2{font-size:43px}
+      .sceneVisual{min-height:520px}
+      .singleDevice{width:255px;height:535px}
     }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="shell navin">
-      <a class="brand" href="#"><span class="brandmark"><span class="e">E</span><span class="x">X</span></span><span>Elevator<b>X</b></span></a>
-      <nav class="navlinks">
+  <header class="siteNav">
+    <div class="wrap navInner">
+      <a class="brand" href="#top">
+        <span class="brandMark"><span>E</span><span class="x">X</span></span>
+        <span>Elevator<span class="x">X</span></span>
+      </a>
+      <nav class="navLinks">
+        <a href="#genel">Genel Bakış</a>
         <a href="#ozellikler">Özellikler</a>
         <a href="#kurulum">Kurulum</a>
-        <a class="navcta" href="https://elevatorx.github.io/" target="_blank" rel="noopener">Uygulamayı Aç</a>
+        <a href="https://wa.me/905412654308?text=Merhaba%2C%20ElevatorX%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">Lisans</a>
+        <a class="navCta" href="https://elevatorx.github.io/" target="_blank" rel="noopener">Uygulamayı Aç</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="shell heroGrid">
-        <div>
-          <div class="eyebrow">ASANSÖR SAHA YÖNETİMİ</div>
-          <h1><span class="heroTitleTop">İşini cebinden yönet.</span><span class="heroTitleBrand">ElevatorX</span></h1>
-          <p class="lead">Bakım takibi, apartman kayıtları, cari durum, tahsilat, teknik kütüphane, raporlama ve lisans yönetimi tek uygulamada.</p>
-          <div class="actions">
-            <a class="btn primary" href="https://elevatorx.github.io/" target="_blank" rel="noopener">ElevatorX’i Aç</a>
-            <a class="btn dark" href="https://wa.me/905412654308?text=Merhaba%2C%20ElevatorX%20uygulamas%C4%B1%20hakk%C4%B1nda%20bilgi%20ve%20lisans%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp’tan Bilgi Al</a>
-            <a class="btn ghost" href="#kurulum">Kurulum Rehberi</a>
-          </div>
-          <div class="micro">App Store gerekmez • iPhone ve Android uyumlu • Lisanslı kullanım</div>
+  <main id="top">
+    <section class="hero" id="genel">
+      <div class="wrap">
+        <div class="eyebrow reveal">Asansör saha yönetimi. Yeniden düşünüldü.</div>
+        <h1 class="reveal">İşini daha sade yönet. <span class="x">ElevatorX.</span></h1>
+        <p class="heroLead reveal">Bakım, apartman, cari hesap, tahsilat, teknik kayıtlar ve raporlar. Hepsi tek yerde, her zaman yanında.</p>
+        <div class="heroActions reveal">
+          <a class="textLink" href="https://elevatorx.github.io/" target="_blank" rel="noopener">Uygulamayı aç</a>
+          <a class="textLink" href="#kurulum">Nasıl kurulur?</a>
         </div>
 
-        <div class="device" aria-label="ElevatorX uygulama önizlemesi">
-          <div class="screen">
-            <div class="screenTop">
-              <div class="screenLogo">Elevator<b>X</b></div>
-              <div class="menuDot">☰</div>
-            </div>
-            <div class="searchMock">⌕ &nbsp; Apartman ara...</div>
-            <div class="stats">
-              <div class="stat"><b>14</b><span>Apartman</span></div>
-              <div class="stat"><b>₺7.800</b><span>Tahsilat</span></div>
-              <div class="stat"><b>0</b><span>Bakım bugün</span></div>
-              <div class="stat"><b>0</b><span>Geciken</span></div>
-            </div>
-            <div class="aptList">
-              <div class="apt"><div><strong>ŞEN APARTMANI</strong><small>Bakım ve cari takip</small></div><span class="badge">Borç Yok</span></div>
-              <div class="apt"><div><strong>BELEDİYE EVLERİ</strong><small>Planlı bakım</small></div><span class="badge">Aktif</span></div>
-              <div class="apt"><div><strong>SAKİNLER APARTMANI</strong><small>Teknik geçmiş</small></div><span class="badge">Aktif</span></div>
+        <div class="appStage reveal">
+          <div class="stageGlow"></div>
+
+          <div class="device deviceLeft">
+            <div class="deviceScreen">
+              <div class="drawer">
+                <div class="drawerHead">
+                  <div class="drawerBrand">Elevator<span class="x">X</span></div>
+                  <div class="drawerClose">×</div>
+                </div>
+                <div class="profileCard"><b>Demo Hesap</b><span>Kurumsal lisans aktif</span></div>
+                <div class="drawerLabel">HIZLI İŞLEMLER</div>
+                <div class="drawerItem primary"><div class="drawerIcon">＋</div><div><b>Yeni Apartman</b><small>Hızlı kayıt formunu aç</small></div></div>
+                <div class="drawerItem"><div class="drawerIcon">▤</div><div><b>Teknik Kütüphane</b><small>Kart, sürücü ve teknik notlar</small></div></div>
+                <div class="drawerLabel">HESAP VE GÜVENLİK</div>
+                <div class="drawerItem"><div class="drawerIcon">○</div><div><b>Profil</b><small>Firma ve yedekleme ayarları</small></div></div>
+                <div class="drawerItem"><div class="drawerIcon">↥</div><div><b>Verileri Yedekle</b><small>JSON yedeğini oluştur</small></div></div>
+                <div class="drawerItem"><div class="drawerIcon">▣</div><div><b>Lisans Durumu</b><small>Cihaz ve aktivasyon bilgisi</small></div></div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="ozellikler">
-      <div class="shell">
-        <div class="sectionHead">
-          <span>Tek merkez</span>
-          <h2>Sahadaki dağınıklığı toparlar</h2>
-          <p>Kağıt, not defteri ve farklı uygulamalar yerine işletme bilgilerini düzenli, hızlı ve ulaşılabilir tutar.</p>
-        </div>
-        <div class="features">
-          <article class="feature"><div class="icon">✓</div><h3>Bakım Takibi</h3><p>Aylık bakım durumlarını, geciken işleri ve son işlemleri takip edin.</p></article>
-          <article class="feature"><div class="icon">▦</div><h3>Apartman Yönetimi</h3><p>Yönetici, telefon, planlanan bakım ve sicil bilgilerini tek kartta görün.</p></article>
-          <article class="feature"><div class="icon">₺</div><h3>Cari ve Tahsilat</h3><p>Ödeme, kısmi ödeme, bakiye ve tahsilat geçmişini kayıt altında tutun.</p></article>
-          <article class="feature"><div class="icon">↥</div><h3>Yedekleme</h3><p>Verilerinizi JSON yedeğiyle güvenli biçimde dışarı aktarın.</p></article>
-          <article class="feature"><div class="icon">▤</div><h3>Teknik Kütüphane</h3><p>Kart, sürücü, arıza kodları ve saha notlarını hızlıca bulun.</p></article>
-          <article class="feature"><div class="icon">⌁</div><h3>Lisans Sistemi</h3><p>Lisans ilk kullanımda cihaza bağlanır ve aktivasyon bilgisi kontrol edilir.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="kurulum">
-      <div class="shell">
-        <div class="sectionHead">
-          <span>Kolay kurulum</span>
-          <h2>Telefonuna uygulama gibi ekle</h2>
-          <p>ElevatorX tarayıcıdan açılır, ardından ana ekrana eklenerek bağımsız bir uygulama gibi kullanılır.</p>
-        </div>
-
-        <div class="installWrap">
-          <article class="installCard">
-            <h3>iPhone kurulumu</h3>
-            <div class="steps">
-              <div class="step"><span class="num">1</span><div><b>Safari ile aç</b><p>“ElevatorX’i Aç” butonuna Safari üzerinden dokun.</p></div></div>
-              <div class="step"><span class="num">2</span><div><b>Paylaş simgesine dokun</b><p>Safari’nin alt menüsündeki paylaş düğmesini aç.</p></div></div>
-              <div class="step"><span class="num">3</span><div><b>Ana Ekrana Ekle</b><p>Listeden “Ana Ekrana Ekle” seçeneğini seç.</p></div></div>
-              <div class="step"><span class="num">4</span><div><b>ElevatorX’i aç</b><p>Oluşan ikondan uygulamayı tam ekran kullan.</p></div></div>
+          <div class="device deviceMain">
+            <div class="deviceScreen">
+              <div class="appTop">
+                <div class="appBrand">Elevator<span class="x">X</span></div>
+                <div class="appMenu">☰</div>
+              </div>
+              <div class="searchBox">⌕ &nbsp; Apartman ara...</div>
+              <div class="summaryGrid">
+                <div class="summaryCard"><b>14</b><span>Apartman</span></div>
+                <div class="summaryCard"><b>₺7.800</b><span>Tahsilat</span></div>
+                <div class="summaryCard"><b>0</b><span>Bakım bugün</span></div>
+                <div class="summaryCard"><b>0</b><span>Geciken</span></div>
+              </div>
+              <div class="listTitle">Apartmanlarım</div>
+              <div class="aptCard"><div><strong>MERKEZ APT</strong><small>Bakım ve cari takip</small></div><span class="aptBadge">Borç Yok</span></div>
+              <div class="aptCard"><div><strong>ÖRNEK SİTE</strong><small>Planlı bakım</small></div><span class="aptBadge">Aktif</span></div>
+              <div class="aptCard"><div><strong>NOVA BLOK</strong><small>Teknik geçmiş</small></div><span class="aptBadge">Aktif</span></div>
+              <div class="segmented"><span>Bakım</span><span class="active">Apartmanlar</span></div>
             </div>
-          </article>
+          </div>
 
-          <article class="installCard">
-            <h3>Android kurulumu</h3>
-            <div class="steps">
-              <div class="step"><span class="num">1</span><div><b>Chrome ile aç</b><p>ElevatorX bağlantısını Chrome tarayıcısında aç.</p></div></div>
-              <div class="step"><span class="num">2</span><div><b>Tarayıcı menüsünü aç</b><p>Sağ üstteki üç nokta menüsüne dokun.</p></div></div>
-              <div class="step"><span class="num">3</span><div><b>Uygulamayı yükle</b><p>“Uygulamayı yükle” veya “Ana ekrana ekle” seçeneğini kullan.</p></div></div>
-              <div class="step"><span class="num">4</span><div><b>Lisansını etkinleştir</b><p>Size verilen lisans anahtarını uygulamaya gir.</p></div></div>
+          <div class="device deviceRight">
+            <div class="deviceScreen">
+              <div class="appTop">
+                <div class="appBrand">Profil</div>
+                <div class="appMenu">☰</div>
+              </div>
+              <div class="profileHero">
+                <div class="avatar">EX</div>
+                <h4>ElevatorX Demo</h4>
+                <p>Kurumsal profil</p>
+              </div>
+              <div class="profileNote">Asansör bakım, montaj ve servis süreçlerinizi tek merkezden yönetin.</div>
+              <div class="controlCard">
+                <span>KONTROL MERKEZİ</span>
+                <h4>Profil, rapor ve yedekleme</h4>
+                <p>Firma bilgileri, raporlar ve cihaz ayarları tek bölümde.</p>
+              </div>
+              <div class="profileStats">
+                <div class="profileStat"><b>14</b><small>Apartman</small></div>
+                <div class="profileStat"><b>₺7.800</b><small>Tahsilat</small></div>
+                <div class="profileStat"><b>₺4.900</b><small>Açık bakiye</small></div>
+                <div class="profileStat"><b>Bugün</b><small>Son yedek</small></div>
+              </div>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="shell">
-        <div class="sales">
+    <section class="section" id="ozellikler">
+      <div class="sectionLabel reveal">Öne çıkanlar.</div>
+      <h2 class="sectionTitle reveal">Her şey olması gerektiği yerde.</h2>
+      <p class="sectionText reveal">ElevatorX günlük operasyonu görünür, anlaşılır ve ulaşılabilir hale getirir.</p>
+
+      <div class="highlightRail">
+        <article class="highlightCard whiteCard reveal">
           <div>
-            <h2>ElevatorX lisansı alın</h2>
-            <p>Fiyat, kurulum ve lisans işlemleri için WhatsApp üzerinden iletişime geçin.</p>
+            <h3>Bakım takibi.<br>Bir bakışta.</h3>
+            <p>Geciken işleri, bugün yapılacak bakımları ve son işlemleri anında gör.</p>
           </div>
-          <a class="btn" href="https://wa.me/905412654308?text=Merhaba%2C%20ElevatorX%20lisans%C4%B1%20sat%C4%B1n%20almak%20istiyorum." target="_blank" rel="noopener">Lisans Talebi Oluştur</a>
+          <div class="metricBlock">
+            <div class="metric"><b>0</b><span>Geciken</span></div>
+            <div class="metric"><b>0</b><span>Bugün</span></div>
+          </div>
+        </article>
+
+        <article class="highlightCard blackCard reveal">
+          <div>
+            <h3>Cari durum.<br>Net ve anlaşılır.</h3>
+            <p>Ödemeler, kısmi tahsilatlar ve açık bakiyeler tek kayıtta.</p>
+          </div>
+          <div class="metricBlock">
+            <div class="metric"><b>₺7.800</b><span>Tahsilat</span></div>
+            <div class="metric"><b>₺4.900</b><span>Açık bakiye</span></div>
+          </div>
+        </article>
+
+        <article class="highlightCard blueCard reveal">
+          <div>
+            <h3>Teknik bilgi.<br>Her zaman yanında.</h3>
+            <p>Kartlar, sürücüler, arıza kodları ve saha notları yardımcı menüde.</p>
+          </div>
+          <div class="metricBlock">
+            <div class="metric"><b>Tek dokunuş</b><span>Hızlı erişim</span></div>
+            <div class="metric"><b>Tek merkez</b><span>Teknik kayıtlar</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="scene sceneDark">
+      <div class="wrap sceneGrid">
+        <div class="sceneCopy reveal">
+          <h2>Bakımı takip et.<br>Hiçbir işi kaçırma.</h2>
+          <p>Planlı bakımlar, geciken işler ve tamamlanan işlemler tek ekranda düzenli kalır.</p>
+        </div>
+        <div class="sceneVisual reveal">
+          <div class="singleDevice">
+            <div class="deviceScreen">
+              <div class="appTop">
+                <div class="appBrand">Bakım</div>
+                <div class="appMenu">☰</div>
+              </div>
+              <div class="searchBox">⌕ &nbsp; Bakım ara...</div>
+              <div class="summaryGrid">
+                <div class="summaryCard"><b>0</b><span>Bugün</span></div>
+                <div class="summaryCard"><b>0</b><span>Geciken</span></div>
+              </div>
+              <div class="listTitle">Bakım planı</div>
+              <div class="aptCard"><div><strong>MERKEZ APT</strong><small>20.06.2026</small></div><span class="aptBadge">Planlı</span></div>
+              <div class="aptCard"><div><strong>ÖRNEK SİTE</strong><small>22.06.2026</small></div><span class="aptBadge">Planlı</span></div>
+              <div class="aptCard"><div><strong>NOVA BLOK</strong><small>25.06.2026</small></div><span class="aptBadge">Planlı</span></div>
+              <div class="segmented"><span class="active">Bakım</span><span>Apartmanlar</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene sceneLight">
+      <div class="wrap sceneGrid">
+        <div class="sceneVisual reveal">
+          <div class="singleDevice">
+            <div class="deviceScreen">
+              <div class="appTop">
+                <div class="appBrand">Elevator<span class="x">X</span></div>
+                <div class="appMenu">☰</div>
+              </div>
+              <div class="searchBox">⌕ &nbsp; Apartman ara...</div>
+              <div class="summaryGrid">
+                <div class="summaryCard"><b>14</b><span>Apartman</span></div>
+                <div class="summaryCard"><b>₺7.800</b><span>Tahsilat</span></div>
+              </div>
+              <div class="listTitle">Apartmanlarım</div>
+              <div class="aptCard"><div><strong>MERKEZ APT</strong><small>EX-MRK-001</small></div><span class="aptBadge">Borç Yok</span></div>
+              <div class="aptCard"><div><strong>ÖRNEK SİTE</strong><small>EX-ORN-002</small></div><span class="aptBadge">Aktif</span></div>
+              <div class="aptCard"><div><strong>NOVA BLOK</strong><small>EX-NOV-003</small></div><span class="aptBadge">Aktif</span></div>
+              <div class="segmented"><span>Bakım</span><span class="active">Apartmanlar</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="sceneCopy reveal">
+          <h2>Tüm apartmanlar.<br>Tüm bilgiler. Tek yerde.</h2>
+          <p>Yönetici bilgileri, bakım planları, cari hareketler ve teknik geçmiş tek kayıtta birleşir.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene sceneBlue">
+      <div class="wrap sceneGrid">
+        <div class="sceneCopy reveal">
+          <h2>Verin sende kalır.</h2>
+          <p>Yerel kayıt, JSON yedekleme ve cihaz bağlı lisans sistemiyle kontrol daima sende.</p>
+        </div>
+        <div class="sceneVisual reveal">
+          <div class="securityList">
+            <div class="securityItem"><div class="securityIcon">↥</div><div><b>JSON yedekleme</b><span>Verilerini tek dosyada dışarı aktar.</span></div></div>
+            <div class="securityItem"><div class="securityIcon">▣</div><div><b>Cihaz bağlı lisans</b><span>Lisans ilk etkinleştirmede cihaza bağlanır.</span></div></div>
+            <div class="securityItem"><div class="securityIcon">✓</div><div><b>Yerel veri</b><span>Günlük kayıtların cihazında tutulur.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kurulum">
+      <div class="wrap">
+        <div class="sectionLabel reveal">Kurulumu birkaç dakika.</div>
+        <h2 class="sectionTitle reveal">App Store gerekmez.</h2>
+        <p class="sectionText reveal">ElevatorX’i Safari veya Chrome üzerinden aç, ana ekranına ekle ve uygulama gibi kullan.</p>
+
+        <div class="installPanel reveal">
+          <div class="installCopy">
+            <h3>Telefonuna ekle.<br>İşine devam et.</h3>
+            <p>Kurulum tamamlandığında ElevatorX ana ekranında kendi simgesiyle görünür ve tam ekran açılır.</p>
+            <div class="heroActions" style="justify-content:flex-start;margin-top:24px">
+              <a class="textLink" href="https://elevatorx.github.io/" target="_blank" rel="noopener">ElevatorX’i aç</a>
+            </div>
+          </div>
+
+          <div class="steps">
+            <div class="step"><span class="stepNo">1</span><div><b>Safari veya Chrome ile aç</b><p>Uygulama bağlantısını telefon tarayıcında aç.</p></div></div>
+            <div class="step"><span class="stepNo">2</span><div><b>Ana ekrana ekle</b><p>iPhone’da Paylaş menüsünü, Android’de tarayıcı menüsünü kullan.</p></div></div>
+            <div class="step"><span class="stepNo">3</span><div><b>Lisansını etkinleştir</b><p>Tarafına verilen lisans anahtarını uygulamaya gir.</p></div></div>
+            <div class="step"><span class="stepNo">4</span><div><b>Hazır</b><p>ElevatorX artık telefonunda bağımsız bir uygulama gibi çalışır.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ctaSection">
+      <div class="wrap">
+        <div class="cta reveal">
+          <div class="ctaInner">
+            <h2>ElevatorX ile başlayın.</h2>
+            <p>Lisans, kurulum ve fiyat bilgisi için doğrudan iletişime geçin.</p>
+            <div class="ctaButtons">
+              <a class="button buttonBlue" href="https://wa.me/905412654308?text=Merhaba%2C%20ElevatorX%20lisans%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp’tan bilgi al</a>
+              <a class="button buttonWhite" href="https://elevatorx.github.io/" target="_blank" rel="noopener">Uygulamayı aç</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="shell foot">
-      <div><strong>ElevatorX</strong> • Asansör saha yönetim sistemi</div>
+    <div class="wrap footerInner">
+      <div>© 2026 ElevatorX. Tüm hakları saklıdır.</div>
+      <div>Asansör saha yönetim sistemi</div>
     </div>
   </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:.12});
+
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
